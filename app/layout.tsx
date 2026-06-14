@@ -36,9 +36,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.mahalaxmiagri.com",
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
 };
 
 export default function RootLayout({
@@ -47,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="lenis lenis-smooth">
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
