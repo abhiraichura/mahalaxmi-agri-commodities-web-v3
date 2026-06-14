@@ -3,16 +3,10 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { stats } from '@/app/data/commodities';
+import { stats, type StatItem } from '@/app/data/commodities';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
-}
-
-interface StatItem {
-  number: number;
-  suffix: string;
-  label: string;
 }
 
 function CounterCard({ stat, index }: { stat: StatItem; index: number }) {
@@ -126,7 +120,7 @@ export function StatsSection() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {stats.map((stat, index) => (
-            <CounterCard key={stat.label} stat={stat as StatItem} index={index} />
+            <CounterCard key={stat.label} stat={stat} index={index} />
           ))}
         </div>
       </div>

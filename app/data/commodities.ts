@@ -14,6 +14,30 @@ export interface Commodity {
   seasonality: string;
 }
 
+export interface Testimonial {
+  id: number;
+  quote: string;
+  author: string;
+  role: string;
+  company: string;
+  rating: number;
+}
+
+export interface StatItem {
+  number: number;
+  suffix: string;
+  label: string;
+}
+
+export interface BlogPost {
+  id: number;
+  title: string;
+  category: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+}
+
 export const commodities: Commodity[] = [
   {
     id: 'cumin',
@@ -198,13 +222,13 @@ export const commodities: Commodity[] = [
       { label: 'Strength', value: '28-30 g/tex' },
       { label: 'Color', value: 'White/Off-white' },
     ],
-    description: 'Premium cotton lint and bales from India's best cotton-growing regions. Meeting international quality standards for textile manufacturing and export.',
+    description: "Premium cotton lint and bales from India's best cotton-growing regions. Meeting international quality standards for textile manufacturing and export.",
     uses: ['Textile manufacturing', 'Export', 'Yarn production'],
     seasonality: 'Oct - Mar',
   },
 ];
 
-export const testimonials = [
+export const testimonials: Testimonial[] = [
   {
     id: 1,
     quote: "Mahalaxmi found us a cumin supplier in Unjha that no other broker could locate. The quality consistency over 3 years has been exceptional. Kishan bhai doesn't just broker — he guarantees.",
@@ -261,7 +285,7 @@ export const regions = [
   "Jodhpur", "Indore", "Surat", "Nagpur", "Hyderabad"
 ];
 
-export const stats = [
+export const stats: StatItem[] = [
   { number: 23, suffix: "+", label: "Years of Excellence" },
   { number: 500, suffix: "+", label: "Verified Suppliers" },
   { number: 200, suffix: "+", label: "Active Exporters" },
@@ -270,7 +294,7 @@ export const stats = [
   { number: 0, suffix: "", label: "Compromises on Quality" },
 ];
 
-export const blogPosts = [
+export const blogPosts: BlogPost[] = [
   {
     id: 1,
     title: "Cumin Price Trends 2024: What Exporters Need to Know",
