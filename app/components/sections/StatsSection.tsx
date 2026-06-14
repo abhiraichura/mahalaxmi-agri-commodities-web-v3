@@ -9,13 +9,18 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-function CounterCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
+interface StatItem {
+  number: number;
+  suffix: string;
+  label: string;
+}
+
+function CounterCard({ stat, index }: { stat: StatItem; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const numberRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Card entrance
       gsap.from(cardRef.current, {
         y: 40,
         opacity: 0,
@@ -29,7 +34,6 @@ function CounterCard({ stat, index }: { stat: typeof stats[0]; index: number }) 
         },
       });
 
-      // Number count up
       if (numberRef.current && stat.number > 0) {
         const obj = { val: 0 };
         gsap.to(obj, {
@@ -122,7 +126,7 @@ export function StatsSection() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {stats.map((stat, index) => (
-            <CounterCard key={stat.label} stat={stat} index={index} />
+            <CounterCard key={stat.label} stat={stat as StatItem} index={index} />
           ))}
         </div>
       </div>
